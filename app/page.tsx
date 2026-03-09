@@ -11,6 +11,9 @@ export default function Home() {
   const [showPhotos, setShowPhotos] = useState(false);
   const galleryRef = useRef<HTMLDivElement | null>(null);
   const GALLERY_SCROLL_OFFSET = 120;
+  const GALLERY_SCROLL_DELAY = 250;
+  const MOBILE_GALLERY_MAX_HEIGHT = "max-h-[3200px]";
+  const DESKTOP_GALLERY_MAX_HEIGHT = "sm:max-h-[1400px]";
 
   const handleTogglePhotos = () => {
     if (!showPhotos) {
@@ -28,7 +31,7 @@ export default function Home() {
             behavior: "smooth",
           });
         }
-      }, 250);
+      }, GALLERY_SCROLL_DELAY);
     } else {
       setShowPhotos(false);
     }
@@ -87,7 +90,7 @@ export default function Home() {
         <p className="text-base text-[#b3b3b3] leading-relaxed">
           I&apos;m usually running, playing volleyball, or getting overly
           invested in making a good matcha latte. I&apos;ve also been getting
-          into photography lately :D
+          into photography lately.
         </p>
 
         <button
@@ -102,7 +105,7 @@ export default function Home() {
           ref={galleryRef}
           className={`overflow-hidden transition-all duration-500 ease-in-out ${
             showPhotos
-              ? "max-h-[1200px] translate-y-0 opacity-100"
+              ? `${MOBILE_GALLERY_MAX_HEIGHT} ${DESKTOP_GALLERY_MAX_HEIGHT} translate-y-0 opacity-100`
               : "max-h-0 translate-y-2 opacity-0"
           }`}
         >

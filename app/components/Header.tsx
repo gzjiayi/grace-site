@@ -35,7 +35,7 @@ export default function Header() {
         >
           GZ
         </motion.div>
-      </a>{" "}
+      </a>
       {/* nav links */}
       <nav className="flex w-full flex-wrap items-center gap-x-4 gap-y-2 sm:w-auto md:gap-x-6">
         <a
@@ -47,6 +47,7 @@ export default function Header() {
         <a
           href="https://linkedin.com/in/gzjiayi"
           target="_blank"
+          rel="noreferrer"
           className="text-[#b3b3b3] transition-colors hover:text-[#f5f5f5]"
         >
           LinkedIn
@@ -54,6 +55,7 @@ export default function Header() {
         <a
           href="https://github.com/gzjiayi"
           target="_blank"
+          rel="noreferrer"
           className="text-[#b3b3b3] transition-colors hover:text-[#f5f5f5]"
         >
           Github
@@ -61,6 +63,7 @@ export default function Header() {
         <a
           href="/resume.pdf"
           target="_blank"
+          rel="noreferrer"
           className="flex items-center gap-1.5 rounded-md border border-[#6b9dc3]/50 px-2.5 py-1 text-[13px] text-[#f5f5f5] transition-colors hover:border-[#6b9dc3] hover:bg-[#6b9dc3]/10 sm:px-3 sm:py-1.5 sm:text-sm"
         >
           <FileText className="w-4 h-4 text-[#6b9dc3]" />

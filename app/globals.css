@@ -20,3 +20,12 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+::selection {
+  background: rgba(107, 157, 195, 0.25);
+  color: #f5f5f5;
+}
+
+:focus-visible {
+  outline: 2px solid #6b9dc3;
+  outline-offset: 2px;
+}

@@ -22,7 +22,7 @@ export default function ExperienceSection() {
           />
         ))}
         <div className="pt-3 pb-1" aria-label="Recruiting call to action">
-          <p className="text-base font-medium text-[#6b9dc3]">Your company?</p>
+          <p className="text-base font-medium text-[#6b9dc3]">Your Company?</p>
           <p className="text-sm text-[#b3b3b3] leading-relaxed">
             Let&apos;s build something together — I&apos;m currently looking for
             Fall 2026 internship opportunities.

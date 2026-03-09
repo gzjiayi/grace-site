@@ -1,19 +1,46 @@
+"use client";
+
+import { useRef, useState } from "react";
 import HeroTyping from "./components/HeroTyping";
 import Header from "./components/Header";
 import ExperienceSection from "./components/ExperienceSection";
 import { projects } from "../data/projects";
+import PhotoGallery from "./components/PhotoGallery";
 
 export default function Home() {
+  const [showPhotos, setShowPhotos] = useState(false);
+  const galleryRef = useRef<HTMLDivElement | null>(null);
+  const GALLERY_SCROLL_OFFSET = 120;
+
+  const handleTogglePhotos = () => {
+    if (!showPhotos) {
+      setShowPhotos(true);
+
+      setTimeout(() => {
+        if (galleryRef.current) {
+          const y =
+            galleryRef.current.getBoundingClientRect().top +
+            window.scrollY -
+            GALLERY_SCROLL_OFFSET;
+
+          window.scrollTo({
+            top: y,
+            behavior: "smooth",
+          });
+        }
+      }, 250);
+    } else {
+      setShowPhotos(false);
+    }
+  };
   return (
     <main
-      className="max-w-2xl mx-auto px-6 pt-2 pb-12 md:pt-4 md:pb-20 min-h-screen flex flex-col gap-15"
+      className="max-w-2xl mx-auto px-6 pt-2 pb-12 md:pt-4 md:pb-20 min-h-screen flex flex-col gap-8"
       id="top"
     >
-      {/* 1. Header */}
       <Header />
 
-      {/* 2. Hero Section */}
-      <section className="flex flex-col gap-6">
+      <section className="mt-2 flex flex-col gap-6">
         <HeroTyping />
         <p className="text-base md:text-[17px] text-[#b3b3b3] leading-relaxed">
           I&apos;m a fourth-year computer engineering student at the University
@@ -25,10 +52,8 @@ export default function Home() {
         </p>
       </section>
 
-      {/* 3. Experience Section */}
       <ExperienceSection />
 
-      {/* 4. Projects Section */}
       <section className="flex flex-col gap-6 pt-10">
         <h2 className="text-2xl font-mono font-medium tracking-tight text-[#f5f5f5]">
           Projects
@@ -40,21 +65,51 @@ export default function Home() {
               href={project.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-block text-base font-medium text-[#f5f5f5] transition-all hover:text-[#cfcfcf] hover:underline hover:decoration-[#cfcfcf] [text-decoration-thickness:1px] underline-offset-4"
+              className="group inline-flex items-center gap-1 text-base font-medium text-[#f5f5f5] transition-all hover:text-[#cfcfcf]"
             >
-              {project.title}
+              <span className="underline-offset-4 group-hover:underline group-hover:decoration-[#cfcfcf] [text-decoration-thickness:1px]">
+                {project.title}
+              </span>
+              <span className="text-[0.95rem] opacity-70 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100">
+                ↗
+              </span>
             </a>
             <p className="mt-1 text-sm text-[#8a8a8a]">{project.meta}</p>
           </div>
         ))}
       </section>
 
-      {/* 5. Hobbies Section */}
       <section className="flex flex-col gap-4 pt-10 pb-20">
         <h2 className="text-2xl font-mono font-medium tracking-tight text-[#f5f5f5]">
           When not coding...
         </h2>
-        <p className="text-base text-[#b3b3b3] leading-relaxed">I am...</p>
+
+        <p className="text-base text-[#b3b3b3] leading-relaxed">
+          I&apos;m usually running, playing volleyball, or getting overly
+          invested in making a good matcha latte. I&apos;ve also been getting
+          into photography lately :D
+        </p>
+
+        <button
+          type="button"
+          onClick={handleTogglePhotos}
+          className="w-fit text-sm text-[#8a8a8a] transition hover:text-[#cfcfcf] hover:underline underline-offset-4"
+        >
+          {showPhotos ? "Hide photos" : "View photos"}
+        </button>
+
+        <div
+          ref={galleryRef}
+          className={`overflow-hidden transition-all duration-500 ease-in-out ${
+            showPhotos
+              ? "max-h-[1200px] translate-y-0 opacity-100"
+              : "max-h-0 translate-y-2 opacity-0"
+          }`}
+        >
+          <div className="pt-3">
+            <PhotoGallery />
+          </div>
+        </div>
       </section>
     </main>
   );

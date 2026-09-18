@@ -49,7 +49,7 @@ export default function Header() {
       {/* nav links */}
       <nav className="flex w-full flex-wrap items-center gap-x-4 gap-y-2 sm:w-auto md:gap-x-6">
         <a
-          href="mailto:g25zhang@uwaterloo.ca"
+          href="mailto:gracejiayizhang@gmail.com"
           className="text-[#b3b3b3] transition-colors hover:text-[#f5f5f5]"
         >
           Email
@@ -71,7 +71,7 @@ export default function Header() {
           GitHub
         </a>
         <a
-          href="/resume.pdf"
+          href="/Grace_Zhang_Resume.pdf"
           target="_blank"
           rel="noreferrer"
           className="flex items-center gap-1.5 rounded-md border border-[#6b9dc3]/50 px-2.5 py-1 text-[13px] text-[#f5f5f5] transition-colors hover:border-[#6b9dc3] hover:bg-[#6b9dc3]/10 sm:px-3 sm:py-1.5 sm:text-sm"

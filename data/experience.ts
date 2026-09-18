@@ -4,6 +4,7 @@ export type ExperienceEntry = {
 };
 
 export const experience: ExperienceEntry[] = [
+  { company: "Rundoo", role: "Software Engineer Intern" },
   { company: "Mantle Equity", role: "Software Engineer Intern" },
   { company: "Empire Life", role: "Software Developer Intern" },
   { company: "University Health Network", role: "Web Developer Intern" },

@@ -32,7 +32,7 @@ export default function ExperienceSection() {
           </p>
           <p className="text-sm text-[#b3b3b3] leading-relaxed">
             Let&apos;s build something together — I&apos;m currently looking for
-            Fall 2026 internships.
+            2027 internships and new grad roles.
           </p>
         </div>
       </div>
